@@ -15,6 +15,8 @@ app.use("/images", express.static(path.join(process.cwd(), "storage")));
 app.use("/jobs", jobsRouter);
 app.use("/api", uploadRouter);
 
-app.listen(5001, () => {
-  console.log("Backend running on http://localhost:5001");
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => {
+  console.log(`Backend running on http://localhost:${PORT}`);
 });
