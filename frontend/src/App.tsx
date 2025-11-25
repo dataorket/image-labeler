@@ -471,6 +471,14 @@ export default function App() {
                   ).map((img) => (
                     <div 
                       key={img.imageId}
+                      onClick={() => {
+                        // Find the job containing this image
+                        const job = allJobs.find(j => j.images.some(i => i.imageId === img.imageId));
+                        if (job) {
+                          setSelectedJobId(job.jobId);
+                          setCurrentJob(job);
+                        }
+                      }}
                       style={{
                         background: "rgba(255, 255, 255, 0.98)",
                         borderRadius: 12,
