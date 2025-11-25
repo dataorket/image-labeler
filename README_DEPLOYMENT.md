@@ -369,5 +369,5 @@ git remote -v
 ## Live Deployment
 
 **Backend URL**: https://image-labeler-backend-325931483644.us-central1.run.app  
-**Frontend URL**: (Your Vercel URL)  
+**Frontend URL**: https://image-labeler-theta.vercel.app  
 **GitHub Repository**: https://github.com/dataorket/image-labeler
