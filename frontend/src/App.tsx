@@ -436,7 +436,7 @@ export default function App() {
 
         {/* Right Pane - Results */}
         <div style={{ flex: 1, overflow: "auto", background: "transparent", width: "100%" }}>
-          {activeTab === "history" ? (
+          {activeTab === "history" && !currentJob ? (
             /* History View - Grid of All Images */
             <div style={{ padding: 40, width: "100%" }}>
               <h2 style={{ 
