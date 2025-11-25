@@ -6,15 +6,15 @@ test.describe('Image Labeler - Simple Tests', () => {
     await expect(page.locator('h1')).toBeVisible();
   });
 
-  test('should show upload button', async ({ page }) => {
+  test('should show upload tab', async ({ page }) => {
     await page.goto('/');
-    const uploadButton = page.getByRole('button', { name: /Upload/i });
-    await expect(uploadButton).toBeVisible();
+    const uploadTab = page.getByRole('button', { name: '📤 Upload' });
+    await expect(uploadTab).toBeVisible();
   });
 
-  test('should show history button', async ({ page }) => {
+  test('should show history tab', async ({ page }) => {
     await page.goto('/');
-    const historyButton = page.getByRole('button', { name: /History/i });
-    await expect(historyButton).toBeVisible();
+    const historyTab = page.getByRole('button', { name: '📜 History' });
+    await expect(historyTab).toBeVisible();
   });
 });
