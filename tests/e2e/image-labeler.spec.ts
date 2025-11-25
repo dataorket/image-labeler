@@ -41,7 +41,7 @@ test.describe('Image Labeler - Upload & Analysis', () => {
     await expect(page.locator('text=⏳ Uploading...')).toBeVisible();
     
     // Wait for analysis to complete (max 60 seconds for Vision API)
-    await expect(page.locator('text=DONE')).toBeVisible({ timeout: 60000 });
+    await expect(page.locator('text=DONE').first()).toBeVisible({ timeout: 60000 });
     
     // Check that Analysis Results panel appears
     await expect(page.locator('text=Analysis Results')).toBeVisible();
@@ -67,7 +67,7 @@ test.describe('Image Labeler - Upload & Analysis', () => {
     await page.locator('text=🚀 Upload & Analyze').click();
     
     // Wait for analysis
-    await expect(page.locator('text=DONE')).toBeVisible({ timeout: 60000 });
+    await expect(page.locator('text=DONE').first()).toBeVisible({ timeout: 60000 });
     
     // Check tabs for label categories
     await expect(page.locator('text=Objects')).toBeVisible();
@@ -110,7 +110,7 @@ test.describe('Image Labeler - History', () => {
     await page.locator('text=🚀 Upload & Analyze').click();
     
     // Wait for upload to complete
-    await expect(page.locator('text=DONE')).toBeVisible({ timeout: 60000 });
+    await expect(page.locator('text=DONE').first()).toBeVisible({ timeout: 60000 });
     
     // Switch to History tab
     await page.locator('text=📜 History').click();
@@ -133,7 +133,7 @@ test.describe('Image Labeler - History', () => {
     const testImagePath = './tests/fixtures/test-image.jpg';
     await fileInput.setInputFiles(testImagePath);
     await page.locator('text=🚀 Upload & Analyze').click();
-    await expect(page.locator('text=DONE')).toBeVisible({ timeout: 60000 });
+    await expect(page.locator('text=DONE').first()).toBeVisible({ timeout: 60000 });
     
     // Go to History
     await page.locator('text=📜 History').click();
@@ -174,7 +174,7 @@ test.describe('Image Labeler - UI/UX', () => {
     await page.locator('text=🚀 Upload & Analyze').click();
     
     // Wait for results
-    await expect(page.locator('text=DONE')).toBeVisible({ timeout: 60000 });
+    await expect(page.locator('text=DONE').first()).toBeVisible({ timeout: 60000 });
     
     // Click clear button
     const clearButton = page.locator('text=🗑️ Clear Results');
