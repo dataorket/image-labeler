@@ -138,7 +138,11 @@ export default function App() {
               📤 Upload
             </button>
             <button
-              onClick={() => setActiveTab("history")}
+              onClick={() => {
+                setActiveTab("history");
+                setCurrentJob(null);
+                setSelectedJobId(null);
+              }}
               style={{
                 padding: "10px 24px",
                 border: "none",
