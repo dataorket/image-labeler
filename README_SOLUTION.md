@@ -2,6 +2,10 @@
 
 A fullstack TypeScript application that allows users to upload images, automatically extract metadata, and label them using Google Cloud Vision API.
 
+## Architecture
+
+![Architecture Diagram](architecture.png)
+
 ## Features
 
 - 📤 **Upload single or multiple images** with real-time progress tracking
