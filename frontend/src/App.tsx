@@ -4,7 +4,7 @@ import type { UploadJob } from "./types";
 import { ImageCard } from "./ImageCard";
 import "./App.css";
 
-const API_URL = "http://localhost:5001";
+const API_URL = "https://image-labeler-backend-325931483644.us-central1.run.app";
 
 export default function App() {
   const [files, setFiles] = useState<FileList | null>(null);
