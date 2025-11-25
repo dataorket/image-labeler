@@ -5,7 +5,7 @@ test.describe('Image Labeler - Upload & Analysis', () => {
     await page.goto('/');
     
     // Check page title and main elements
-    await expect(page.locator('text=🖼️ Image Labeler')).toBeVisible();
+    await expect(page.locator('text=🖼️ Image Analysis & Labeling Service')).toBeVisible();
     await expect(page.locator('text=📤 Upload')).toBeVisible();
     await expect(page.locator('text=📜 History')).toBeVisible();
   });
@@ -13,15 +13,15 @@ test.describe('Image Labeler - Upload & Analysis', () => {
   test('should allow file selection', async ({ page }) => {
     await page.goto('/');
     
-    // Check file input exists
+    // Check file input exists (it's hidden but should be in DOM)
     const fileInput = page.locator('input[type="file"]');
-    await expect(fileInput).toBeVisible();
+    await expect(fileInput).toBeAttached();
     
     // Set a test file
     const testImagePath = './tests/fixtures/test-image.jpg';
     await fileInput.setInputFiles(testImagePath);
     
-    // Upload button should be enabled
+    // Upload button should be enabled after file selection
     const uploadButton = page.locator('text=🚀 Upload & Analyze');
     await expect(uploadButton).toBeEnabled();
   });
