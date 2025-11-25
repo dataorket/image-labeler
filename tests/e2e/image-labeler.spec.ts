@@ -47,9 +47,9 @@ test.describe('Image Labeler - Upload & Analysis', () => {
     await expect(page.locator('text=Analysis Results')).toBeVisible();
     
     // Check for job details structure
-    await expect(page.locator('text=STATUS')).toBeVisible();
-    await expect(page.locator('text=IMAGES')).toBeVisible();
-    await expect(page.locator('text=PROGRESS')).toBeVisible();
+    await expect(page.locator('text=STATUS').first()).toBeVisible();
+    await expect(page.locator('text=IMAGES').first()).toBeVisible();
+    await expect(page.locator('text=PROGRESS').first()).toBeVisible();
     
     // Verify image is displayed
     const uploadedImage = page.locator('img[alt*=".jpg"]').first();
