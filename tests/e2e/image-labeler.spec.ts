@@ -8,13 +8,13 @@ test.describe('Image Labeler - Simple Tests', () => {
 
   test('should show upload button', async ({ page }) => {
     await page.goto('/');
-    const uploadText = page.locator('text=Upload');
-    await expect(uploadText).toBeVisible();
+    const uploadButton = page.getByRole('button', { name: /Upload/i });
+    await expect(uploadButton).toBeVisible();
   });
 
   test('should show history button', async ({ page }) => {
     await page.goto('/');
-    const historyText = page.locator('text=History');
-    await expect(historyText).toBeVisible();
+    const historyButton = page.getByRole('button', { name: /History/i });
+    await expect(historyButton).toBeVisible();
   });
 });
