@@ -1,0 +1,15 @@
+{
+  "name": "image-labeler",
+  "version": "1.0.0",
+  "description": "AI-powered image labeling application using Google Cloud Vision API",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1"
+  }
+}
