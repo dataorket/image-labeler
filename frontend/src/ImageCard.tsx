@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { ImageRecord } from "./types";
 
-const API_URL = "http://localhost:5001";
+const API_URL = "https://image-labeler-backend-325931483644.us-central1.run.app";
 
 interface Props {
   img: ImageRecord;
