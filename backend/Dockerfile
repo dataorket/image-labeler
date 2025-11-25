@@ -1,5 +1,5 @@
-# Use Node.js 18 LTS
-FROM node:18-slim
+# Use Node.js 20 LTS
+FROM node:20-slim
 
 # Set working directory
 WORKDIR /app
@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies (all, including dev for building)
+RUN npm ci
 
 # Copy source code
 COPY . .
@@ -16,8 +16,11 @@ COPY . .
 # Build TypeScript
 RUN npm run build
 
-# Expose port
+# List dist folder to verify build
+RUN ls -la dist/
+
+# Expose port (Cloud Run uses PORT env var)
 EXPOSE 8080
 
 # Start the server
-CMD ["npm", "start"]
+CMD ["node", "dist/server.js"]
