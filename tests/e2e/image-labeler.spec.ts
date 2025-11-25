@@ -1,9 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 test.describe('Image Labeler - Upload & Analysis', () => {
   test('should display the application with upload and history tabs', async ({ page }) => {
@@ -23,7 +18,7 @@ test.describe('Image Labeler - Upload & Analysis', () => {
     await expect(fileInput).toBeVisible();
     
     // Set a test file
-    const testImagePath = join(__dirname, '../fixtures/test-image.jpg');
+    const testImagePath = './tests/fixtures/test-image.jpg';
     await fileInput.setInputFiles(testImagePath);
     
     // Upload button should be enabled
@@ -36,7 +31,7 @@ test.describe('Image Labeler - Upload & Analysis', () => {
     
     // Upload an image
     const fileInput = page.locator('input[type="file"]');
-    const testImagePath = join(__dirname, '../fixtures/test-image.jpg');
+    const testImagePath = './tests/fixtures/test-image.jpg';
     await fileInput.setInputFiles(testImagePath);
     
     // Click upload button
@@ -66,7 +61,7 @@ test.describe('Image Labeler - Upload & Analysis', () => {
     
     // Upload an image
     const fileInput = page.locator('input[type="file"]');
-    const testImagePath = join(__dirname, '../fixtures/test-image.jpg');
+    const testImagePath = './tests/fixtures/test-image.jpg';
     await fileInput.setInputFiles(testImagePath);
     
     await page.locator('text=🚀 Upload & Analyze').click();
@@ -110,7 +105,7 @@ test.describe('Image Labeler - History', () => {
     await page.goto('/');
     
     const fileInput = page.locator('input[type="file"]');
-    const testImagePath = join(__dirname, '../fixtures/test-image.jpg');
+    const testImagePath = './tests/fixtures/test-image.jpg';
     await fileInput.setInputFiles(testImagePath);
     await page.locator('text=🚀 Upload & Analyze').click();
     
@@ -135,7 +130,7 @@ test.describe('Image Labeler - History', () => {
     
     // Upload an image first
     const fileInput = page.locator('input[type="file"]');
-    const testImagePath = join(__dirname, '../fixtures/test-image.jpg');
+    const testImagePath = './tests/fixtures/test-image.jpg';
     await fileInput.setInputFiles(testImagePath);
     await page.locator('text=🚀 Upload & Analyze').click();
     await expect(page.locator('text=DONE')).toBeVisible({ timeout: 60000 });
@@ -174,7 +169,7 @@ test.describe('Image Labeler - UI/UX', () => {
     
     // Upload an image
     const fileInput = page.locator('input[type="file"]');
-    const testImagePath = join(__dirname, '../fixtures/test-image.jpg');
+    const testImagePath = './tests/fixtures/test-image.jpg';
     await fileInput.setInputFiles(testImagePath);
     await page.locator('text=🚀 Upload & Analyze').click();
     
