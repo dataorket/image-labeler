@@ -1,5 +1,5 @@
 # Use Node.js 18 LTS
-FROM node:18-alpine
+FROM node:18-slim
 
 # Set working directory
 WORKDIR /app
@@ -7,17 +7,14 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install ALL dependencies (including dev dependencies for build)
-RUN npm ci
+# Install dependencies
+RUN npm install
 
 # Copy source code
 COPY . .
 
 # Build TypeScript
 RUN npm run build
-
-# Remove dev dependencies
-RUN npm prune --production
 
 # Expose port
 EXPOSE 8080

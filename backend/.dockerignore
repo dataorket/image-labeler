@@ -7,5 +7,4 @@ storage/*
 *.json
 !package.json
 !package-lock.json
-src
-tsconfig.json
+!tsconfig.json
